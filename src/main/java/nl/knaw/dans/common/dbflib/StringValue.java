@@ -107,7 +107,7 @@ public class StringValue
              */
             if (field.getType() != Type.MEMO)
             {
-                byteArrayOutputStream.write(Util.repeat((byte) 0x00, fieldLength - stringBytes.length));
+                byteArrayOutputStream.write(Util.repeat((byte) 0x20, fieldLength - stringBytes.length));
             }
         }
         catch (final IOException ioException)
