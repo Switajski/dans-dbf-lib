@@ -72,6 +72,7 @@
                         <exclude>src/test/resources/**</exclude>
                         <exclude>src/site/resources/**</exclude>
                         <exclude>src/main/resources/**</exclude>
+						<exclude>.github/**</exclude>
                     </excludes>
                 </configuration>
                 <executions>
