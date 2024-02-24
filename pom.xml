@@ -22,7 +22,7 @@
 	<groupId>nl.knaw.dans.common</groupId>
 	<artifactId>dans-dbf-lib</artifactId>
 	<name>DANS DBF Library</name>
-	<version>1.0.0-beta-10</version>
+	<version>1.0.0-beta-12</version>
 	<url>http://dans-dbf-lib.sourceforge.net/</url>
 	<inceptionYear>2009-2016</inceptionYear>
 	<organization>
@@ -85,8 +85,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.5.1</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.7</source>
+					<target>1.7</target>
 				</configuration>
 			</plugin>
 
@@ -118,7 +118,7 @@
 						<descriptor>src/assembly/source-dist.xml</descriptor>
 					</descriptors>
 				</configuration>
-				<executions>
+				<!-- <executions>
 					<execution>
 						<id>make-assembly</id>
 						<phase>package</phase>
@@ -126,7 +126,7 @@
 							<goal>attached</goal>
 						</goals>
 					</execution>
-				</executions>
+				</executions> -->
 			</plugin>
 
 			<plugin>

@@ -442,13 +442,13 @@ public class Table
             final Field field = fieldIterator.next();
 
             map.put(field.getName(),
-                    createValueObject(fieldValue));
+                    createValueObject(fieldValue, charsetName));
         }
 
         addRecord(new Record(map));
     }
 
-    private Value createValueObject(final Object value)
+    public static Value createValueObject(final Object value, String charsetName)
     {
         if (value instanceof Number)
         {
