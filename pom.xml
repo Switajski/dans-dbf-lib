@@ -186,7 +186,7 @@
 <!--		</repository>-->
 		<repository>
 			<id>s3</id>
-			<url>s3://public-switajski/release</url>
+			<url>s3://public-switajski/releases/</url>
 		</repository>
 	</distributionManagement>
 
