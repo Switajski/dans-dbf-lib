@@ -161,6 +161,13 @@
             </plugin>
 
 		</plugins>
+		<extensions>
+			<extension>
+				<groupId>org.springframework.build</groupId>
+				<artifactId>aws-maven</artifactId>
+				<version>5.0.0.RELEASE</version>
+			</extension>
+		</extensions>
 	</build>
 
 	<dependencies>
@@ -172,10 +179,15 @@
 	</dependencies>
 
 	<distributionManagement>
+<!--		<repository>-->
+<!--			<id>github</id>-->
+<!--			<name>GitHub Packages</name>-->
+<!--			<url>https://maven.pkg.github.com/Switajski/dans-dbf-lib</url>-->
+<!--		</repository>-->
 		<repository>
-			<id>github</id>
-			<name>GitHub Packages</name>
-			<url>https://maven.pkg.github.com/Switajski/dans-dbf-lib</url>
+			<id>s3</id>
+			<url>s3://public-switajski/release</url>
 		</repository>
 	</distributionManagement>
+
 </project>

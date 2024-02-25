@@ -15,4 +15,5 @@ jobs:
       - name: Publish package
         run: mvn --batch-mode deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AWS_ACCESS_KEY: ${{S3_USER_NAME}}
+          MAVEN_AWS_SECRET_KEY: ${{S3_PASSWORD}}
