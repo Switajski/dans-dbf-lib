@@ -29,6 +29,16 @@
 		<name>DANS</name>
 		<url>http://www.dans.knaw.nl/en</url>
 	</organization>
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+	<description>
+		library to read and write DBF files
+	</description>
+	<scm><url>https://github.com/Switajski/dans-dbf-lib.git</url></scm>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
