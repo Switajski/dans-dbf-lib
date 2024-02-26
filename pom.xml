@@ -179,11 +179,6 @@
 	</dependencies>
 
 	<distributionManagement>
-<!--		<repository>-->
-<!--			<id>github</id>-->
-<!--			<name>GitHub Packages</name>-->
-<!--			<url>https://maven.pkg.github.com/Switajski/dans-dbf-lib</url>-->
-<!--		</repository>-->
 		<repository>
 			<id>s3</id>
 			<url>s3://public-switajski/releases/</url>
