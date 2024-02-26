@@ -16,35 +16,34 @@ DANS DBF requires Java 1.5, or later, and has no dependencies.
 The following program demonstrates how the library is used.
 
 ```java
+import com.switajski.dbflib.Field;
+import com.switajski.dbflib.IfNonExistent;
+import com.switajski.dbflib.Table;
 import nl.knaw.dans.common.dbflib.*;
 
 import java.io.File;
 import java.util.Iterator;
 import java.util.List;
 
-public class DansDbfDemo
-{
-  public static void main(String []args) throws Exception
-  {
-    File dbfFile = new File("src/test/resources/dbase3plus/cars/cars.dbf");
-    Table table = new Table(dbfFile);
-    table.open(IfNonExistent.ERROR);
-    List<Field> fields = table.getFields();
-    Iterator<Record> it = table.recordIterator();
-    while (it.hasNext())
-    {
-      Record record = it.next();
-      for (Field field: fields)
-      {
-        System.out.print(field.getName());
-        System.out.print(": ");
-        System.out.print(field.getType());
-        System.out.print(": ");
-        System.out.println(record.getTypedValue(field.getName()));
-      }
+public class DansDbfDemo {
+    public static void main(String[] args) throws Exception {
+        File dbfFile = new File("src/test/resources/dbase3plus/cars/cars.dbf");
+        Table table = new Table(dbfFile);
+        table.open(IfNonExistent.ERROR);
+        List<Field> fields = table.getFields();
+        Iterator<Record> it = table.recordIterator();
+        while (it.hasNext()) {
+            Record record = it.next();
+            for (Field field : fields) {
+                System.out.print(field.getName());
+                System.out.print(": ");
+                System.out.print(field.getType());
+                System.out.print(": ");
+                System.out.println(record.getTypedValue(field.getName()));
+            }
+        }
+        table.close();
     }
-    table.close();
-  }
 }
 ```
 

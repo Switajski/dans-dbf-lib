@@ -22,7 +22,7 @@
 	<groupId>com.switajski</groupId>
 	<artifactId>dans-dbf-lib</artifactId>
 	<name>DANS DBF Library</name>
-	<version>1.0.0-beta-11</version>
+	<version>1.0.1</version>
 	<url>http://dans-dbf-lib.sourceforge.net/</url>
 	<inceptionYear>2009-2016</inceptionYear>
 	<organization>
@@ -146,7 +146,7 @@
 							<outputDirectory>${basedir}/target/site</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${basedir}/src/examples/dump-table/src/main/java/nl/knaw/dans/common/dbflib/example/</directory>
+									<directory>${basedir}/src/examples/dump-table/src/main/java/de/switajski/dbflib/example/</directory>
 									<includes>
 										<include>DumpTable.java</include>
 									</includes>
