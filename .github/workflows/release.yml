@@ -15,5 +15,5 @@ jobs:
       - name: Publish package
         run: mvn --batch-mode deploy
         env:
-          AWS_ACCESS_KEY: ${{secrets.S3_USER_NAME}}
-          MAVEN_AWS_SECRET_KEY: ${{secrets.S3_PASSWORD}}
+          AWS_ACCESS_KEY_ID: ${{secrets.S3_USER_NAME}}
+          AWS_SECRET_KEY: ${{secrets.S3_PASSWORD}}
