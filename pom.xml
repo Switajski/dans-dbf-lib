@@ -103,70 +103,6 @@
 				</configuration>
 			</plugin>
 
-			<!-- TODO: Needs to be factored out into a dans-proto-build project -->
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>jalopy-maven-plugin</artifactId>
-				<version>1.0-alpha-1</version>
-				<executions>
-					<execution>
-						<!-- Do formatting after compilation, otherwise compilation will always 
-							be deemed necessary, as formatting changes the source files -->
-						<phase>package</phase>
-						<goals>
-							<goal>format</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<convention>src/config/jalopy.xml</convention>
-					<failOnError>false</failOnError>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<configuration>
-					<descriptors>
-						<descriptor>src/assembly/source-dist.xml</descriptor>
-					</descriptors>
-				</configuration>
-				<!-- <executions>
-					<execution>
-						<id>make-assembly</id>
-						<phase>package</phase>
-						<goals>
-							<goal>attached</goal>
-						</goals>
-					</execution>
-				</executions> -->
-			</plugin>
-
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.5</version>
-				<executions>
-					<execution>
-						<id>copy-example-source</id>
-						<phase>site</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/target/site</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${basedir}/src/examples/dump-table/src/main/java/nl/knaw/dans/common/dbflib/example/</directory>
-									<includes>
-										<include>DumpTable.java</include>
-									</includes>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
 			<plugin>
 				<groupId>org.sonatype.central</groupId>
 				<artifactId>central-publishing-maven-plugin</artifactId>
@@ -198,7 +134,7 @@
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
-						<phase>package</phase>
+<!--						<phase>package</phase>-->
 						<goals>
 							<goal>jar</goal>
 						</goals>
