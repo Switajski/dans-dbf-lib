@@ -43,7 +43,8 @@ public class Record
      * The following is a table of the <code>Value</code> subclasses, the DBF field types and the
      * result of passing the one as a value for the other:
      *
-     * <table border="1" cellpadding="4">
+     * <table border="1">
+     * <caption>result of passing the one as a value for the other</caption>
      * <tr>
      * <td>&nbsp;</td>
      * <td><b>CHARACTER</b></td>
@@ -57,64 +58,64 @@ public class Record
      * </tr>
      * <tr>
      * <td><b>StringValue</b></td>
-     * <td bgcolor="lightgreen">Accepted if within maximum length</td>
-     * <td bgcolor="lightgreen">Accepted if one of "Y", "N", "T", "F" or a space, no
+     * <td style="background-color:lightgreen">Accepted if within maximum length</td>
+     * <td style="background-color:lightgreen">Accepted if one of "Y", "N", "T", "F" or a space, no
      * leading/trailing spaces allowed</td>
-     * <td bgcolor="lightgreen">Accepted if a valid number, that fits in the field and has exactly
+     * <td style="background-color:lightgreen">Accepted if a valid number, that fits in the field and has exactly
      * the number of decimals as the field's decimal count</td>
-     * <td bgcolor="lightgreen">See NUMBER</td>
-     * <td bgcolor="lightgreen">Accepted if in the format YYYYMMDD. No leading or trailing spaces.
+     * <td style="background-color:lightgreen">See NUMBER</td>
+     * <td style="background-color:lightgreen">Accepted if in the format YYYYMMDD. No leading or trailing spaces.
      * No check is done whether the date is itself valid.</td>
-     * <td bgcolor="lightgreen">Accepted</td>
-     * <td bgcolor="lightgreen">Accepted</td>
-     * <td bgcolor="lightgreen">Accepted</td>
+     * <td style="background-color:lightgreen">Accepted</td>
+     * <td style="background-color:lightgreen">Accepted</td>
+     * <td style="background-color:lightgreen">Accepted</td>
      * </tr>
      * <tr>
      * <td><b>BooleanValue</b></td>
-     * <td bgcolor="lightgreen">Accepted, Y or N written as first character of the field</td>
-     * <td bgcolor="lightgreen">Accepted, Y or N written</td>
-     * <td bgcolor="pink">DME)<sup>*</sup></td>
-     * <td bgcolor="pink">DME</td>
-     * <td bgcolor="pink">DME</td>
-     * <td bgcolor="lightgreen">Accepted</td>
-     * <td bgcolor="lightgreen">Accepted</td>
-     * <td bgcolor="lightgreen">Accepted</td>
+     * <td style="background-color:lightgreen">Accepted, Y or N written as first character of the field</td>
+     * <td style="background-color:lightgreen">Accepted, Y or N written</td>
+     * <td style="background-color:pink">DME)<sup>*</sup></td>
+     * <td style="background-color:pink">DME</td>
+     * <td style="background-color:pink">DME</td>
+     * <td style="background-color:lightgreen">Accepted</td>
+     * <td style="background-color:lightgreen">Accepted</td>
+     * <td style="background-color:lightgreen">Accepted</td>
      * </tr>
      * <tr>
      * <td><b>NumberValue</b></td>
-     * <td bgcolor="lightgreen">Accepted, if the number fits in the field</td>
-     * <td bgcolor="pink">DME</td>
-     * <td bgcolor="lightgreen">Accepted, if the digits before the decimal point and the minus sign
+     * <td style="background-color:lightgreen">Accepted, if the number fits in the field</td>
+     * <td style="background-color:pink">DME</td>
+     * <td style="background-color:lightgreen">Accepted, if the digits before the decimal point and the minus sign
      * (if any) together do not occupy more space than reserved for them by the field. If there are
      * too many digits after the decimal point they are rounded</td>
-     * <td bgcolor="lightgreen">See NUMBER</td>
-     * <td bgcolor="pink">DME</td>
-     * <td bgcolor="lightgreen">Accepted</td>
-     * <td bgcolor="lightgreen">Accepted</td>
-     * <td bgcolor="lightgreen">Accepted</td>
+     * <td style="background-color:lightgreen">See NUMBER</td>
+     * <td style="background-color:pink">DME</td>
+     * <td style="background-color:lightgreen">Accepted</td>
+     * <td style="background-color:lightgreen">Accepted</td>
+     * <td style="background-color:lightgreen">Accepted</td>
      * </tr>
      * <tr>
      * <td><b>DateValue</b></td>
-     * <td bgcolor="lightgreen">Accepted, if the CHARACTER field is at least 10 long (the size of a
+     * <td style="background-color:lightgreen">Accepted, if the CHARACTER field is at least 10 long (the size of a
      * DATE field in DBF).</td>
-     * <td bgcolor="pink">DME</td>
-     * <td bgcolor="pink">DME</td>
-     * <td bgcolor="pink">DME</td>
-     * <td bgcolor="lightgreen">Accepted</td>
-     * <td bgcolor="lightgreen">Accepted, Date written as YYYYMMDD</td>
-     * <td bgcolor="lightgreen">Accepted, Date written as YYYYMMDD</td>
-     * <td bgcolor="lightgreen">Accepted, Date written as YYYYMMDD</td>
+     * <td style="background-color:pink">DME</td>
+     * <td style="background-color:pink">DME</td>
+     * <td style="background-color:pink">DME</td>
+     * <td style="background-color:lightgreen">Accepted</td>
+     * <td style="background-color:lightgreen">Accepted, Date written as YYYYMMDD</td>
+     * <td style="background-color:lightgreen">Accepted, Date written as YYYYMMDD</td>
+     * <td style="background-color:lightgreen">Accepted, Date written as YYYYMMDD</td>
      * </tr>
      * <tr>
      * <td><b>ByteArrayValue</b></td>
-     * <td bgcolor="pink">DME</td>
-     * <td bgcolor="pink">DME</td>
-     * <td bgcolor="pink">DME</td>
-     * <td bgcolor="pink">DME</td>
-     * <td bgcolor="pink">DME</td>
-     * <td bgcolor="lightgreen">Accepted, Date written as YYYYMMDD</td>
-     * <td bgcolor="lightgreen">Accepted, Date written as YYYYMMDD</td>
-     * <td bgcolor="lightgreen">Accepted, Date written as YYYYMMDD</td>
+     * <td style="background-color:pink">DME</td>
+     * <td style="background-color:pink">DME</td>
+     * <td style="background-color:pink">DME</td>
+     * <td style="background-color:pink">DME</td>
+     * <td style="background-color:pink">DME</td>
+     * <td style="background-color:lightgreen">Accepted, Date written as YYYYMMDD</td>
+     * <td style="background-color:lightgreen">Accepted, Date written as YYYYMMDD</td>
+     * <td style="background-color:lightgreen">Accepted, Date written as YYYYMMDD</td>
      * </tr>
      * </table>
      * )<sup>*</sup> DataMismatchException
@@ -203,7 +204,7 @@ public class Record
      *      //
      *
      *      // Get a record iterator to loop over all the records.
-     *      Iterator<Record> ri = table1.recordIterator();
+     *      Iterator ri = table1.recordIterator();
      *
      *      // Search for the record with SOMENUM = val
      *      while(ri.hasNext())

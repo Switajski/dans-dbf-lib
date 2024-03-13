@@ -16,19 +16,31 @@
     limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>nl.knaw.dans.common</groupId>
+	<groupId>com.switajski</groupId>
 	<artifactId>dans-dbf-lib</artifactId>
 	<name>DANS DBF Library</name>
-	<version>1.0.0-beta-12</version>
+	<version>1.0.0-beta-11</version>
 	<url>http://dans-dbf-lib.sourceforge.net/</url>
 	<inceptionYear>2009-2016</inceptionYear>
 	<organization>
 		<name>DANS</name>
 		<url>http://www.dans.knaw.nl/en</url>
 	</organization>
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+	<description>
+		library to read and write DBF files
+	</description>
+	<scm>
+		<url>https://github.com/Switajski/dans-dbf-lib.git</url>
+	</scm>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -56,31 +68,34 @@
 	</developers>
 	<build>
 		<plugins>
-            <plugin>
-                <groupId>com.mycila</groupId>
-                <artifactId>license-maven-plugin</artifactId>
-                <version>2.11</version>
-                <configuration>
-                    <header>com/mycila/maven/plugin/license/templates/APACHE-2.txt</header>
-                    <properties>
-                        <owner>DANS - Data Archiving and  Networked Services</owner>
-                        <email>info@dans.knaw.nl</email>
-                    </properties>
-                    <excludes>
-                        <exclude>LICENSE</exclude>
-                        <exclude>**/README</exclude>
-                        <exclude>src/test/resources/**</exclude>
-                        <exclude>src/site/resources/**</exclude>
-                        <exclude>src/main/resources/**</exclude>
-                    </excludes>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>process-sources</phase>
-                        <goals><goal>check</goal></goals>
-                    </execution>
-                </executions>
-            </plugin>
+			<plugin>
+				<groupId>com.mycila</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<version>2.11</version>
+				<configuration>
+					<header>com/mycila/maven/plugin/license/templates/APACHE-2.txt</header>
+					<properties>
+						<owner>DANS - Data Archiving and  Networked Services</owner>
+						<email>info@dans.knaw.nl</email>
+					</properties>
+					<excludes>
+						<exclude>LICENSE</exclude>
+						<exclude>**/README</exclude>
+						<exclude>src/test/resources/**</exclude>
+						<exclude>src/site/resources/**</exclude>
+						<exclude>src/main/resources/**</exclude>
+						<exclude>.github/**</exclude>
+					</excludes>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.5.1</version>
@@ -90,74 +105,62 @@
 				</configuration>
 			</plugin>
 
-			<!-- TODO: Needs to be factored out into a dans-proto-build project -->
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>jalopy-maven-plugin</artifactId>
-				<version>1.0-alpha-1</version>
-				<executions>
-					<execution>
-						<!-- Do formatting after compilation, otherwise compilation will always 
-							be deemed necessary, as formatting changes the source files -->
-						<phase>package</phase>
-						<goals>
-							<goal>format</goal>
-						</goals>
-					</execution>
-				</executions>
+				<groupId>org.sonatype.central</groupId>
+				<artifactId>central-publishing-maven-plugin</artifactId>
+				<version>0.4.0</version>
+				<extensions>true</extensions>
 				<configuration>
-					<convention>src/config/jalopy.xml</convention>
-					<failOnError>false</failOnError>
+					<publishingServerId>ossrh</publishingServerId>
+					<tokenAuth>true</tokenAuth>
 				</configuration>
 			</plugin>
 
 			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<configuration>
-					<descriptors>
-						<descriptor>src/assembly/source-dist.xml</descriptor>
-					</descriptors>
-				</configuration>
-				<!-- <executions>
-					<execution>
-						<id>make-assembly</id>
-						<phase>package</phase>
-						<goals>
-							<goal>attached</goal>
-						</goals>
-					</execution>
-				</executions> -->
-			</plugin>
-
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.5</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
 				<executions>
 					<execution>
-						<id>copy-example-source</id>
-						<phase>site</phase>
+						<id>attach-sources</id>
 						<goals>
-							<goal>copy-resources</goal>
+							<goal>jar-no-fork</goal>
 						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/target/site</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${basedir}/src/examples/dump-table/src/main/java/nl/knaw/dans/common/dbflib/example/</directory>
-									<includes>
-										<include>DumpTable.java</include>
-									</includes>
-								</resource>
-							</resources>
-						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.3</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
 					</execution>
 				</executions>
 			</plugin>
 
-            <plugin>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.3</version>
-            </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<passphraseServerId>ossrh</passphraseServerId>
+				</configuration>
+			</plugin>
 
 		</plugins>
 	</build>
@@ -168,13 +171,18 @@
 			<artifactId>junit</artifactId>
 			<version>4.5</version>
 		</dependency>
+
 	</dependencies>
 
 	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
 		<repository>
-			<id>github</id>
-			<name>GitHub Packages</name>
-			<url>https://maven.pkg.github.com/Switajski/dans-dbf-lib</url>
+			<id>ossrh</id>
+			<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
 	</distributionManagement>
+
 </project>

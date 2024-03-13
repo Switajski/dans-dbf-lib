@@ -36,7 +36,7 @@ public abstract class Value
     protected Object typed;
 
     /**
-     * Constructs a <tt>Value</tt> object with the specified raw value. The subclass must take care
+     * Constructs a <code>Value</code> object with the specified raw value. The subclass must take care
      * of converting the raw value to a Java object by implementing {@link #doGetTypedValue(byte[]) }
      * .
      *
@@ -49,7 +49,7 @@ public abstract class Value
     }
 
     /**
-     * Constructs a <tt>Value</tt> object with the specified typed value, i.e. Java object. The
+     * Constructs a <code>Value</code> object with the specified typed value, i.e. Java object. The
      * subclass must take care of converting the typed value to a byte array by implementing
      * {@link #doGetRawValue(nl.knaw.dans.common.dbflib.Field) }.
      *
@@ -107,7 +107,7 @@ public abstract class Value
 
     /**
      * Converts the raw bytes to a Java object. The class of Java object to create is determined by
-     * the subclass of <tt>Value</tt>.
+     * the subclass of <code>Value</code>.
      *
      * @return the value as a Java object
      */

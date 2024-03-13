@@ -219,7 +219,7 @@ public class Table
      *
      * @see #open(IfNonExistent)
      *
-     * @throws IllegalArgumentException if <tt>aTableField</tt> is <tt>null</tt>
+     * @throws IllegalArgumentException if <code>aTableField</code> is <code>null</code>
      * @throws InvalidFieldLengthException
      */
     public Table(final File tableFile, final Version version, final List<Field> fields, final String charsetName)
